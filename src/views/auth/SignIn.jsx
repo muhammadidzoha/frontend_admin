@@ -2,13 +2,14 @@ import axios from "axios";
 import InputField from "components/fields/InputField";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from 'services/config';
 
 export default function SignIn() {
   const navigate = useNavigate();
 
   const onSubmit = async (values) => {
     try {
-      await axios.post("http://localhost:5000/api/auth/login", values, {
+      await axios.post(`${BASE_URL}/api/auth/login`, values, {
         withCredentials: true,
       });
       navigate("/admin");

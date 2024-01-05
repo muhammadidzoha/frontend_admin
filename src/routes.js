@@ -2,11 +2,21 @@ import React from "react";
 
 // Admin Imports
 import MainDashboard from "views/admin/default";
-import Surat from "views/admin/surat";
 import NFTMarketplace from "views/admin/marketplace";
 import Profile from "views/admin/profile";
+
 import Berita from "views/admin/berita";
+import TambahBerita from "views/admin/berita/create";
+import EditBerita from "views/admin/berita/edit";
+
 import Destinasi from "views/admin/destinasi";
+import TambahDestinasi from "views/admin/destinasi/create";
+import EditDestinasi from "views/admin/destinasi/edit";
+
+import SuratPengajuan from "views/admin/surat-pengajuan";
+import BuatSuratPengajuan from "views/admin/surat-pengajuan/create";
+import EditSuratPengajuan from "views/admin/surat-pengajuan/edit";
+
 import DataTables from "views/admin/tables";
 
 // Auth Imports
@@ -33,33 +43,27 @@ const routes = [
     component: <MainDashboard />,
   },
   {
-    name: "Data Pengajuan",
+    name: "Surat Pengajuan",
     layout: "/admin",
-    path: "data-pengajuan",
+    path: "surat-pengajuan",
     icon: <MdOutlineAlternateEmail className="h-6 w-6" />,
-    component: <Surat />,
+    component: <SuratPengajuan />,
   },
   {
-    name: "NFT Marketplace",
+    name: "Buat Surat Pengajuan",
     layout: "/admin",
-    path: "nft-marketplace",
-    icon: <MdOutlineShoppingCart className="h-6 w-6" />,
-    component: <NFTMarketplace />,
-    secondary: true,
+    path: "buat-surat-pengajuan",
+    icon: <MdOutlineAlternateEmail className="h-6 w-6" />,
+    component: <BuatSuratPengajuan />,
+    hiddenInSidebar: true,
   },
   {
-    name: "Data Tables",
+    name: "Edit Surat Pengajuan",
     layout: "/admin",
-    icon: <MdBarChart className="h-6 w-6" />,
-    path: "data-tables",
-    component: <DataTables />,
-  },
-  {
-    name: "Profile",
-    layout: "/admin",
-    path: "profile",
-    icon: <MdPerson className="h-6 w-6" />,
-    component: <Profile />,
+    path: "edit-surat-pengajuan/:letterRequestsId",
+    icon: <MdOutlineAlternateEmail className="h-6 w-6" />,
+    component: <EditSuratPengajuan />,
+    hiddenInSidebar: true,
   },
   {
     name: "Berita",
@@ -68,6 +72,23 @@ const routes = [
     icon: <MdNewspaper className="h-6 w-6" />,
     component: <Berita />,
   },
+
+  {
+    name: "Tambah Berita",
+    layout: "/admin",
+    path: "tambah-berita",
+    component: <TambahBerita />,
+    hiddenInSidebar: true,
+  },
+
+  {
+    name: "Edit Berita",
+    layout: "/admin",
+    path: "edit-berita/:newsId", // Use a dynamic parameter for the news ID
+    component: <EditBerita />,
+    hiddenInSidebar: true,
+  },
+
   {
     name: "Destinasi",
     layout: "/admin",
@@ -75,6 +96,23 @@ const routes = [
     icon: <MdOutlinePlace className="h-6 w-6" />,
     component: <Destinasi />,
   },
+  {
+    name: "Tambah Destinasi",
+    layout: "/admin",
+    path: "tambah-destinasi",
+    icon: <MdOutlinePlace className="h-6 w-6" />,
+    component: <TambahDestinasi />,
+    hiddenInSidebar: true,
+  },
+
+  {
+    name: "Edit Destinasi",
+    layout: "/admin",
+    path: "edit-destinasi/:destinationsId", // Use a dynamic parameter for the news ID
+    component: <EditDestinasi />,
+    hiddenInSidebar: true,
+  },
+
   {
     name: "Sign In",
     layout: "/auth",

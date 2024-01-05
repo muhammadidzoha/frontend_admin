@@ -14,7 +14,7 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { BASE_URL } from 'services/config';
 
-export default function Admin(props) {
+export default function Default(props) {
   const { ...rest } = props;
   const location = useLocation();
   const navigate = useNavigate();
@@ -56,7 +56,7 @@ export default function Admin(props) {
   };
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
+      if (prop.layout === "/main") {
         return (
           <Route path={`/${prop.path}`} element={prop.component} key={key} />
         );
